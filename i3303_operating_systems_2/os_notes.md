@@ -70,6 +70,3 @@ A blocking statement for a given amount of time.
 ```C
 int sleep(int sleep_seconds);
 ```
-
-### Homework
-Write a program that determines the maximum of a vector of integers by distributing the task between a parent process and his child.
