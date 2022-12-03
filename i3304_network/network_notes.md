@@ -28,4 +28,4 @@
 
 ## Network I Basics
 
-The doctor was too fast to take down notes, check the pdf.
+The doctor was too fast to take down notes, check the pdf [here](lecture_slides_pdf/chapter_0.pdf).
