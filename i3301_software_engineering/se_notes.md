@@ -152,3 +152,63 @@ If the application is buggy, you'll need to fix them, otherwise the users will r
 
 ## Wrap-up
 This step is related to project management, where we benefit from the development experience to imporve furhter projects.
+
+# Chapter 4: Requirements Engineering
+
+## Defintion
+RE is the set of activities concerned with identifying and communicating the purpose of a software-intensive system, and the context in which it will be used. Hence, RE acts as the bridge between the real world needs of users, customers, and other constituencies afforded by a software system and cpabiliites and popportunities by software-intensive technologies.  
+**software intensive system** it is the collection of software, targeted hardware, and the business context it'll be used in.
+
+## Phases of RE
+1. Elicitation (Gathering)
+2. Analysis
+3. Specification
+4. Validation
+5. Management
+
+These phases form an infinite cycle.
+
+## Software Quality
+A software is evaluated on two scales:
+1. functionality  
+    How good is the software at performing what is does
+2. purpose  
+    How much is the software serving the clients using it
+
+## Requirement Classifications 
+### Audience-Oriented Requirements
+1. Business requirements  
+    What's the overall purpose of the software
+2. User requirements
+    What exact functionalities are expected by the software users.
+3. System/Implementation requirements  
+    What's the hardware required to run the system, training material required to be developed.
+    
+**Progress of requirements** we start with business ones, move to user requiremnts and end with system requiremnts.
+
+
+### Other Requirements
+1. Functional Requirements  
+    services the application should do
+2. Non-functional requirements  
+    - performance
+    - reliability
+    - security
+
+We must assure that the requirements are testable. (elvator example)
+
+## Requiremnts Properties
+1. clear
+2. unambiguous
+3. consistent
+4. prioritized
+4. verifiable
+4. prcisely defined and limited (use moscow method).
+4. completeness
+4. pertinece
+
+### The mosow method
+- M must
+- S should 
+- C could
+- W won't
