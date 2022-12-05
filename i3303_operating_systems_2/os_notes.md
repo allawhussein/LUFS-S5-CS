@@ -70,3 +70,50 @@ A blocking statement for a given amount of time.
 ```C
 int sleep(int sleep_seconds);
 ```
+# Chapter 1: Executing a file
+
+
+How to change the main task of the created process to antoher task
+
+family of exec functions: these functions are used to replace the current context of a processs with new image the running executable is now replaced completely by the called file executable.
+
+1. `execl`  
+```C
+//execute a list
+int execl(char *filename, char *arg_0, char *arg_1, ...);
+// if the returned number is 0 then success, else if -1 failure.
+// the last argument should be NULL, and arg_0 could be NULL if we wish to provide no arguments.
+```
+2. `execlp`  
+```C
+int execlp(char *filename, char *argv, char *argv, ...);
+// similar to execl but will also look for commands in the PATH variable.
+```
+
+The functions can either return 0 for success, or -1 for failure. However note that success is useful for the OS only as the caller process is replace by the callee process, failure is also useless, as adding failure handling code after the `execl` will be executed anyways in case of failure.
+
+**Example**: write a  program to execute the command `ls -l -a`
+
+```C
+void main (int argc, char *argv[]){
+    int pid;
+    pid = fork();
+    if (!pid){
+        execl("/bin/ls", "ls", "-l", "-a", NULL);
+        // full path of the program to be executed is required
+    }
+}
+```
+
+```C
+void main (int argc, char *argv[]){
+    int pid;
+    pid = fork();
+    if (!pid){
+        execlp("ls", "ls", "-l", "-a", NULL);
+        // if program is in PATH, full path is not required.
+    }
+}
+```
+
+
