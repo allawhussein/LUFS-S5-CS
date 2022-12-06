@@ -1,0 +1,6 @@
+mouse
+12
+screen
+5
+pen
+4
