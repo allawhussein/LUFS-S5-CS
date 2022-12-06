@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lab_01_simple_input_and_output.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center|center">
+
+    <EditText
+        android:id="@+id/main_input_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/submit_btn"
+        android:text="Submit"/>
+        <!--android:onClick="updateGreeting"-->
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/greeting_text"
+        android:text="Hello Unknown User!"
+        android:textSize="40dp"
+        />
+
+</LinearLayout>
