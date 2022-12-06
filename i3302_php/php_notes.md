@@ -117,3 +117,32 @@ do{
 }while (condition);
 ?>
 ```
+
+# Form Submitting
+```html
+<form aciton="home.php" method="get">
+    name: <input type="text" name="username">
+    email: <input type="text" name="email">
+    <input type="submit" name="submit" values="read">
+</form>
+```
+Pressing submit will let the server receive them as
+```php
+$_GET["username"];
+$_GET["email"];
+$_GET["submit"];
+```
+
+pressing the submit button will send us to the page inside the action argument of the form target. On this page (in the example `home.php`) we check if the variables `$_GET[...]` exist in that page though
+```php
+isset($_GET[...])
+```
+which returns true or false, which we can process depending on the result.  
+The `$_GET[...]` variables are read-only.  
+It is recommended that we assign the form values to anther variables for better code writing
+```php
+$user = $_GET["username"];
+$email = $_GET["email"];
+$submit = $_GET["submit"];
+```
+
