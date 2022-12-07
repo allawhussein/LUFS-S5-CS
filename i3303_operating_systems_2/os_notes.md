@@ -1,4 +1,12 @@
-# Chapter 0: Processes Revision
+<h1 style="font-size:40px;border-bottom: solid 5px">Part I: Interprocess Communication</h1>
+
+1. Wait & Exit
+2. Unix Pipes
+3. Signals
+4. Shared memeory segment
+5. communication by sockets
+
+# Chapter 1: Wait & Exit
 
 ## view current process
 ```zsh    
@@ -70,7 +78,7 @@ A blocking statement for a given amount of time.
 ```C
 int sleep(int sleep_seconds);
 ```
-# Chapter 1: Executing a file
+## Executing a file
 
 
 How to change the main task of the created process to antoher task
@@ -116,4 +124,100 @@ void main (int argc, char *argv[]){
 }
 ```
 
+# Chapter 2: Unix Pipes
+## Definition:
+A pipe is an  IPC (interprocess communication) tool. It's a:  
+- FIFO  buffer.
+- One-way communicating tool
+- The size of the pipe is fixed in the OS (hyperparameter of 4KB)
+- the pipe has two sides for access: By convention, one is for reading, the other for writing
+- the pipe is shared buffer along processes
 
+It helps with communication and synchronization
+
+## Pipe Creation
+```C
+int fd[2];
+int pipe(fd); // creates a pipe
+// fd[0] is the reading side
+// fd[1] is the writing side
+```
+If the function returns `0` then the pipe was created successfully, if `-1` then the creation failed.
+
+## I/O with Pipes
+### writing
+```C
+int write(fd[1], buf, size);
+```
+we're writing into pipe fd, the content "buffer" of number of bytes "size".
+
+### reading
+```c
+int read(fd[0], buf, size)
+```
+
+## Synchronization with pipes
+The UNIX pipes are used as a tool of synchronization between processes by:
+1. reading from empty pipe is a blocking statement if there's a writer on the other side
+2. writing into a full pipe is a blocking statement if there's a reader on the other side.  
+
+Any side can be determined if opened/closed by the descriptor of the side. This locking mechanism is useful for synchronizing by determining which process to execute and how much.
+
+## Pipes and Forks
+A pipe is useless for any single process. For the pipe to be used a tool of communication the pipe should be created before the forking action, otherwise each process will creates its own pipe that is inaccessible to the other process.
+
+By default each created process is associated with a three file descriptors (everything in UNIX is a file):   
+**0.** standard input (keyboard)
+**1.** standard output (console screen)
+**2.** standard error (also the console screen)
+
+Thus for each process there's a table of file descriptors created, when a text file is opened through `int p = fopen("toto.txt", ...))`, this text file descriptor is added into the process table of file descriptors. And this's the reason we use the read/write functions we used previously with text files, both pipes and text files are files from the perspective of the UNIX OS.
+
+A descriptor while similar to a pointer, it's not the same! we can have two different descriptors pointing to the same file.
+
+```c
+int main(){
+    int pipeSide[2], pid, readStatus;
+    char msgBfr[100]; // for receiving the message
+    char *msg = "Hello another process";
+
+    pipe(pipeSide);
+    pid = fork();
+    if (pid) { // parent proces
+        // close the reading side.
+        close(pipeSide[0]);
+        write(pipeSide[1], msg, strlen(msg));
+        close(pipeSide[1]);
+    }
+    else { // children process
+        // close the writing side.
+        close(pipeSide[1]);
+        readStatus = read(pipeSide[0], msgBfr, 100);
+        printf("The child read %d characters, content: %s", readStatus, msgBfr);
+        close(pipeSide[0]);
+    }
+
+    return 0;
+}
+```
+
+If two way communication is needed, we create two pipes in opposite direction.
+
+```c
+int main(){
+    int paretToChild[2], childToParent, pid;
+    pipe(parentToChild);
+    pipe(childToParent);
+    pid = fork();
+    if (pid) { // parent proces
+        // close the reading side of parentToChild pipe.
+        // close the writing side of childToParent pipe.
+    }
+    else { // child process
+        // close the writing side of parentToChild pipe.
+        // close the reading side of childToParent pipe.
+    }
+
+    return 0;
+}
+```
