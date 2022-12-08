@@ -16,3 +16,15 @@ Views are virtual tables that help optimize performance by caching needed data, 
 and operation that joins two tables, based on a common column, data rows from both tables that have the same value in this common column are kept, all others are discarded.
 - `SELECT`  
 the projection operator, which selects what attributes are to be kept in the view or table.
+
+## Syllabus:
+- Setup privileges
+- setup user groups
+- how to assign users to each group
+- How to define these privileges on views
+- indexing (binary trees)
+- transaction's implementation (how to protect from data loss/corruption)
+- procedural language
+- db triggers
+
+# Chapter 1: DB Privileges Management
