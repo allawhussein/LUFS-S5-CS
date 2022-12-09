@@ -15,21 +15,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="center-vertical" >
+            android:gravity="center" >
 
             <Button
                 android:id="@+id/l_btn"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:text="Left" />
+                android:background="#F44336"
+                android:text="Left"
+                app:backgroundTint="#F44336"
+                app:strokeColor="#F44336"
+                tools:ignore="TextContrastCheck" />
 
             <Button
                 android:id="@+id/r_btn"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:text="Right" />
+                android:background="#2196F3"
+                android:text="Right"
+                app:backgroundTint="#2196F3"
+                tools:ignore="TextContrastCheck" />
 
         </LinearLayout>
 
