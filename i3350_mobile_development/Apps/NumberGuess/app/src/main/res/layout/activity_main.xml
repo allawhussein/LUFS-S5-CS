@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/guess_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guess a Number"
@@ -57,7 +57,6 @@
         android:id="@+id/guess_field"
         android:layout_width="159dp"
         android:layout_height="50"
-        android:ems="10"
         android:inputType="textPersonName"
         android:text="Enter Your Guess"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +70,6 @@
         android:id="@+id/guess_ctr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
