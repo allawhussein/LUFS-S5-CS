@@ -27,6 +27,22 @@
 - Camera, GPS, compass, accelerometer
 - Rich development environment
 
+## `Main Activity.java`
+```java
+package com.example.numberguess;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+```
+when `setContentView` is called, it links the application to the layout file `R.layout.activity_main`, and display the widgets on the application main screen.
 # Chapter 2: Android Widgets
 It includes: buttons, clock, gallery, web/map view, spinner, progress bar, ...
 
@@ -88,4 +104,30 @@ To change the image from the java code
     android:lines="int"
     number of lines to be shown    
 />
+```
+
+## Simple Text Copy Application
+```java
+package com.example.numberguess;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText txt;
+    TextView outputtxt;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        txt = findViewById(R.id.inputText);
+        outputtxt = findViewById(R.id.txtMessage);
+    }
+
+    public void copy(view v){
+        String text = txt.getText().toString();
+        outputtxt.settext(text);
+    }
+}
 ```
