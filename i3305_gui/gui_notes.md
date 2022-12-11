@@ -187,13 +187,82 @@ modifier|y|y|n|n|
 private|y|n|n|n|
 
 ### Inheritance
-Java only allows single inheritance unlike C++. Java implements the interface to compensate for the abscense of multiple inheritance.
+Java only allows single inheritance unlike C++. Java implements the interface to compensate for the abscense of multiple inheritance.  
+It is implemented by the `new` keyword or by redefinitons (overriding).  
+The child class can override the parent's methods.
 
 ### Polymorphism
+polymorphism means "many forms", and occurs when we have amny classes that are related to each other by inheritance.
+
 suppose there's a parent class shape, and two children circle and triangle. The following is allowed
 ```java
 Shape a = new Shape();
-Shape a = new Circle();
-Shape a = new Rectangle();
+Shape b = new Circle();
+Shape c = new Rectangle();
 ```
-This polymorphism can also be called upcasting.
+we can say that class circle is a class shape also, and circle can invoke any method in shape's class.  
+b can only access attributes defined in shape class.
+
+**when is polymorphism useful?**   
+suppose for example we have a student management software, where a student is undergraduate or gradute.  
+if some operation is required to be performed on all students we need to manage two arrays for graduate and undergradute students, however with the use of polymorphism we can use a single array for all students.
+```java
+Person[] people = new Person[4];
+people[0] = new Person("Hussein", "Allaw");
+people[1] = new Student("Ali", "Hussein", 5481);
+people[2] = new Undergraduate("Ibrahim", "El Darsa", 6010, 1);
+```
+
+## Java Casting
+It is a way of converting data from one data type to another.  
+There is two tpes of casting, upcasting and down casting, the later won't be discussed.
+upcasting example: `Shape a = new Circle();`  
+downcasting example: `Circle b = new Shape();`  
+Upcasting is casting an object from a subclass to superclass.
+
+```java
+Animal animal = new Animal();
+Cat cat = new Cat();
+
+animal = cat; // implicit way of casting
+animal = (Animal) cat; // explicit way of upcasting
+
+// OR
+
+Animal animal = new Cat();
+```
+### Overriding
+replacing an inherited method with another having the same signature that allows us to make tchange in the method definition for the derived classes.  
+We use it to define a child's own definition of some common method between parent and child, to unify the behaviour.
+
+## Abstract Class vs. Interface
+check Jana's notes.
+why interface is used instead of abstract class? first due to multiple inheritance, second.
+
+when to use abstract class?  
+when there's a  relation between the target class.
+
+When to use interface?  
+when the to-be created classes have some similarties but no relation between them.
+
+## Overriding Prerquisites
+the method must have the same name as none mentioned in the parent class.  
+the method must have the same parameter as one mentioned in the parent class.  
+there must be a Is-A relation ship.
+
+the main advantatge is that a class can give its own implementation of inherited methods.
+
+## Dynamic Binding
+an inheritance relation and in the presence of polymorhpism, the type of binding will affect the call of methods.
+
+the sub class can override a method m of the parent class with different behaviour.
+
+a reference r of the super class can designate an ojbect of the subclass and r can be used to call m.
+
+If the binding is dynamic is used the methods are related to the class associated with the new keyword, otherwise we have a static binding.
+
+Java by default applies dynamic binding (binding is resolved at run time), C++ by default applies static binding(binding is resovled at compile time). Also in java a bind can be specified to be static.
+
+## Overloading
+to or more methods with different signatures, to be achieved static binding/compile-time binding/early binding may be used.
+on compile time, the compiler checks the types of the parameters passed to a method to decide which method having the given name should be invoked.
