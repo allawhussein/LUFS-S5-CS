@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BasicCalculator</string>
+    <string name="add">add</string>
+    <string name="substract">substract</string>
+    <string name="multiply">multiply</string>
+    <string name="divide">divide</string>
+
+    <string name="firstNumber">First Number</string>
+    <string name="secondNumber">Second Number</string>
+    <string name="submitButton">Calculate</string>
+</resources>

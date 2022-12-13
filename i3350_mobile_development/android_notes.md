@@ -131,3 +131,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+# Spinner Activity
+
+there's three methods, the second is where the spinner extends `Activity` and implements `OnItemSelectedListener`.
+The thirs method was explained yesterday
