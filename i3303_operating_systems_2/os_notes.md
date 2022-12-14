@@ -221,3 +221,71 @@ int main(){
     return 0;
 }
 ```
+
+## Exercises - From previous exams
+```c
+/* Exercise 1
+Determine the output of following pseudo codes
+*/
+
+// code 1
+void main(){
+    int i, j = 1, p[2];
+    pipe(p);
+    write(p[1], &j, sizeof(int));
+    for (i = 1; i < 5; i++){
+        if (!fork()){
+            close(P[1]);
+            break;
+        }
+    }
+    read(P[0], &j, sizeof(int));
+    printf("%d\n", i);
+}
+/* code 1 analysis
+the parent will fork four children, each having only the reading side of the pipe open, while the parent is having both sides open.
+
+when we reach the reading statement there are two scenarios depending on who reaches the reading statement first,the first being one of the children, the second is the parent.
+
+In the first scenario, this children will read the pipe and print its i, the rest of the process will be blocked as the pipe is empty and the pipe still have a writing side open. The exact output will be a single number between 1 and 4 inclusive.
+
+In the second scenario the parent will read the pipe and exits.
+when the children reach the reading statement, they'll encounter an empty pipe with no writing sides open, thus they'll be unblocked and continue execution directly. so the output will be 5 followed be 4 numbers with unknown order.
+*/
+
+// code 2
+void main(){
+    int i, j = 1, P[2];
+    pipe(P);
+    for (i = 1; i < 5; i++){
+        if (!fork()){
+            close(P[1]);
+            break;
+        }
+    }
+    wait(NULL);
+    read(P[0], &j, sizeof(int));
+    printf("%d\n", i);
+}
+/*
+There's no output, all children are blocked by the read statement, and the parent will be blocked by the wait statement.
+*/
+
+// code 3
+void main(){
+    int i, j = 1, P[2];
+    pipe(P);
+    for (i = 1; i < 5; i++){
+        if (!fork()){
+            close(P[1]);
+            break;
+        }
+    }
+    write(P[1], &j, sizeof(int));
+    printf("%d\n", i);
+    read(P[0], &j, sizeof(int));
+}
+/*
+5 + numbers [1, 4] in an unknown order
+*/
+```
