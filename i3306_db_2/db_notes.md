@@ -164,5 +164,31 @@ Storage manager is a prgram module that provides the interface between the low-l
 ## Overall System Structure
 !!!!!!!!!!!!!!!!!!!!!!!! paste an image of R-DBMS internals diagram.
 ### application architectures
-1. two tier, user - app - db
-2. three tier, like web apps user-front end-backend-db
+1. two tier, user <-> app <-> db
+2. three tier, like web apps user <-> frontend <-> backend <-> db
+
+# Chapter 2: Relational Model
+
+## Structure of Relational Database
+
+essentially a revesion of SQL from DB1.
+
+## Database Implementation - Case Study of University Library
+
+Consider a typical university library to borrow books, the database-application of the librasry consider inforamtionabout books, studens, teachers, authors, pulubisher and about borrowing opeartions.  
+The manager of the libarry enforce that the student wil not be allowed to borrow more than three books simultaneously.
+
+### Database Design
+
+check the ppt
+
+### DDL
+
+```SQL
+CREATE TABLE Books(
+    bookID CHAR(10) NOT NULL,
+    publisher CHAR(10) NOT NULL,
+    title CHAR(30) NOT NULL,
+    PRIMARY KEY (bookID)
+)
+```
