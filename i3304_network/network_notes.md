@@ -41,3 +41,9 @@ It is the exit way to outer networks, it is always the next hop for every packet
 when sending and echo request packet to trace the route, we send multiple ICMP echo request packets with increasing TTL (starting with 1), every router on the route should reply with a TTL-expired ICMP packet, the tracing might fail or be incomplete if:
 1. one of the intermediate routers don't want to revel their IP address, thus they drop the expired echo request without issuing an TTL-expire packet
 2. 
+
+# Static Routing
+
+## DHCP
+DHCP > UDP > IP > Ethernet > Physical  
+The packet destination is all 1s (broadcast).
