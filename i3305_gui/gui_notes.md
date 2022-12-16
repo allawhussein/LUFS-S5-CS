@@ -266,3 +266,166 @@ Java by default applies dynamic binding (binding is resolved at run time), C++ b
 ## Overloading
 to or more methods with different signatures, to be achieved static binding/compile-time binding/early binding may be used.
 on compile time, the compiler checks the types of the parameters passed to a method to decide which method having the given name should be invoked.
+
+# Chapter 2: Creational Design Patterns
+
+## Definition of Pattern
+
+1. Each pattern describe a problem which happen over and over again in our environment.  
+The same problem might occur accorss many softwares, example the ability to modify/maintain the software.
+
+2. Then describe the core of the solution.  
+should we find a pattern for every problem we encounter? No, to have a design pattern, we need a pattern and criteria, specific problems can't be generalized and solved through design patterns.  
+3. This description is in such way that can be implemented over and over again.  
+The nice thing about the solution provided by the design pattern's solution is the reusability as a template, all implementations have the same core, but none the same exact way.
+
+The need for design patterns first arose in the civil engineering field, especially that civil are susceptible to problem of repeated problems.  
+When orgainizing the program, it is useful to understand the wasy that people have orgainized in the past (legacy or recent code).
+
+We can think of design patters as a toolbox, some problems have very standard tools to deal with.  
+However note that we should recognize the situation we wish to integrate the design pattern into.
+
+In a nutshell, a design pattern is a general repeatable solution to a commonly ocuring problem in the design of boject-oriented applications. For example the "visitor" pattern will permit us to define a new operation without changing the classes of the element on which it operates.  
+Design patterns are independent of programming languages used. Whenever there's some OOP, design patterns are possible.
+
+## Representation and Types
+### essential elements:
+1. Name
+2. Problem
+3. Solution  
+describes the elements that make up the design, their relationships, responsiblities and collaborations (UML).
+
+In total there's 23 design patterns.
+### Types of Design Patterns
+1. **Creational**  
+These design patterns provides a way to create objects while hiding the creation logic.  
+It like ordering a pizza, we order a one then recieve it without knowing how it was prepared.  
+This approach gives us more flexibility in deciding which objects need to be created for a given use case.  
+Why? if a user initiated the object, and change will affect the user, otherwise any modification will be possible without the client's notice.
+2. **Structural**  
+    - Deal with decoupling interaface and implementation of classes and objects.
+    - Composition of class or objects.  
+    We'll see in this classification how we separate between layers, between the abstraction layer and the inner layers.  
+3. **Behavioral**  
+    - Deal with dynamic interactions among societies of classes and objects
+    - How they distribute responsibility
+
+## Design Pattern Catalog
+1. Creational Pattern: concern the process of object creation
+    - Factory Method
+    - Builder
+    - Singleton
+2. Structural Pattern: deal with composition of classes or objects
+    - Flyweight
+    - Bridge
+    - Adapter (new)
+    - Composite
+    - Proxy
+    - Facade (new)
+3. Behavioral Patterns: characterize the ways in which classes or objects interact and distribute responsibility.
+    - Visitor
+    - Observer MVC
+    - Strategy
+    - Iterator
+
+## Factory Method
+
+In this design pattern a "factory" will take care of object creation and delievery to client.
+
+If we have a super class and n sub-classes, and based on input paramters, we have to return the object o one of the sub-classes.
+
+We refer to newly created objects using a common interface.
+
+So instead of having object creation code on client side, we encapsulate inside a "factory method".  
+The `new` operator is considered harmful (inside the clients code, insider the `main()` function).
+
+### Problem
+a framework needs to standardize the architectural model for a range of applications, but allow for individual applications to define theri own domain objects and providde for their instantiation.
+
+Imagine that you're creating a simulator to represent a bicycle race, a race consists of many bikes (i.e. bicycle for **normal** race, **road** bicycle for the tour de France and **Mountain** bicycle for cyclecorss race).  
+From this example it is clear that we have superclass bicycle, and 3 subclasses.  
+Race > Product > road or mountain.  
+
+### Bad Solution
+Our naive appraoch is to loop over races and using three if statements create the appropriate bicycle.
+
+```java
+public class Race {
+    List<Bicycle> bikes;
+
+    public void createRace(String type){
+        if (type.equlas("normal")){
+            for (int i = 0; i < n; i++)
+                bikes.add(new Bicyle());
+        }
+        if (type.equlas("tourdefrance")){
+            for (int i = 0; i < n; i++)
+                bikes.add(new Bicyle());
+        }
+        if (type.equlas("mountain")){
+            for (int i = 0; i < n; i++)
+                bikes.add(new Bicyle());
+        }
+    }
+}
+```
+Possible problems:
+1. what if we needed to add new race bikes?
+2. if an update is needed we might need to modify an existing structure, we prefer adding new classes, rather than modifying existing ones.
+
+### Good Solution
+The factory pattern suggest that you replace direct object construction calls (using the new operator) with calls to a special factory method.
+
+
+```java
+public abstract class RAce{
+    List<Bicycle> bikes;
+
+    //factory method
+    abstract Bicyle create Bicycle();
+
+    public void createRace(){
+        for (int i = 0; i < n; i++){
+            bikes.add(createBicycle());
+        }
+        ...
+    }
+}
+
+public class CycleCross extends Race {
+    @override
+    Bicycle createBicycle() {
+        return new MountainBicycle();
+    }
+}
+
+public class NormalRace extends Race {
+    @override
+    Bicycle createBicycle() {
+        return new Bicycle();
+    }
+}
+
+public class TourDeFrance extends Race {
+    @override
+    Bicycle createBicycle() {
+        return new RoadBicycle();
+    }
+}
+
+public class Application {
+    public void main(){
+        Race race = new TourDeFrance();
+        // polymorphism is used here if call the createRace(), the tourdefrance constructor will be launched thanks to dynamic binding.
+    }
+}
+```
+
+### Factory Method Structure
+
+
+## Builder
+
+
+
+## Singleton
