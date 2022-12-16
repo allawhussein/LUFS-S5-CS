@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PhotoGalleryWithSpinner</string>
+    <string-array name="figher_aircraft">
+        <item>F14 Tomcat</item>
+        <item>F15 Eagle</item>
+        <item>F18 Hornet</item>
+        <item>F22 Raptor</item>
+    </string-array>
+</resources>
