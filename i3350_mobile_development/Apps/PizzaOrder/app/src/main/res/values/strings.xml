@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PizzaOrder</string>
+
+    <string name="pizza_size_small">Small</string>
+    <string name="pizza_size_medium">Medium</string>
+    <string name="pizza_size_large">Large</string>
+
+    <string name="pizza_addon_item_1">Sausage</string>
+    <string name="pizza_addon_item_2">Pepperoni</string>
+    <string name="pizza_addon_item_3">Olives</string>
+    <string name="pizza_addon_item_4">Mushrooms</string>
+</resources>
