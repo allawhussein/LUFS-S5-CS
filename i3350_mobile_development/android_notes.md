@@ -136,3 +136,90 @@ public class MainActivity extends AppCompatActivity {
 
 there's three methods, the second is where the spinner extends `Activity` and implements `OnItemSelectedListener`.
 The thirs method was explained yesterday
+
+# Widget Box Model
+very similar to HTML element model, content surrounded by padding, surrounded by border, surrounded by margin.
+## Sizing an individual element
+element's width and height can be a specific value, `match_parent` (like 100% in HTML) and `wrap_content`.
+## Padding
+```xml
+android:padding="match_parent"
+android:paddingLeft="wrap_content"
+...
+```
+
+# Layouts
+some language require absolute positioning (like C++ & C#), others require a layout manager (like java), thus we need a layout manager for android development even if we want to use absolute positioning.
+
+XML is the bridge between our code and the layout manager, it is used for describing hierarchical text data.
+
+The root of XML is root manager (Constraint layout, linear layout).
+## Linear Layouts
+(already seen)
+- direction
+- gravity `android:gravity="vertical|horizontal"`  
+    can specified for the whole layout or for a single element
+- weight  
+    it determine the spacing taken by the element relative to other elements  
+    if weight is omitted then the height of each object will be used to determine the spacing of the element  
+    if only one element has its weight specified, then all other elements will occupy their height, and this element will occupy whatever is left.
+
+## Grid Layout
+It's the successor of table layout
+```xml
+<GridLayout ...
+    android:rowCount="2"
+    android:columnCount="3">
+    <Button ... android:text="Buton 1" />
+    <Button ... android:text="Buton 2" />
+    <Button ... android:text="Buton 3" 
+                android:layout_rows="1"
+                android:layout_columns="2"/>
+    <Button ... android:text="Buton 4" />
+</GridLayout>
+```
+if elements positioning in the grid is not specified, they'll occupy each cell if it can accomdate for them.  
+there's a spaning command.
+
+Layouts can be nested in each other.
+
+## Relative Layout
+## Frame Layoute
+
+# Log Methods
+## Log Methods
+```java
+Log.d("tag", "message"); // debug message
+Log.e("tag", "message"); // error message
+Log.d("tag", "message"); // debug message
+Log.d("tag", "message"); // debug message
+Log.d("tag", "message"); // debug message
+```
+
+# Apps Memory and Storge
+
+# Activity State
+1. started  
+    In process of loading up, but not fully loaded
+2. running  
+    fully loaded and viewed on screen
+3. paused  
+    out of focus or obscured, but not shutted down.
+4. stopped  
+    No longer active, but still in memory (like apps in recent applications tab).
+5. destroyed   
+    shutted down and not found in active memory.
+
+we can implement something in the transition from state to state.  
+The first function that launches with our program is the `onCreate` public void method. others are:
+1. from stopped to running
+    - `onRestart()`
+    - `onStart()`
+    - `onResume()`
+2. from starting to running
+    - `onCreate()`
+    - `onStart()`
+    - $\dots$
+
+$\dots$
+
