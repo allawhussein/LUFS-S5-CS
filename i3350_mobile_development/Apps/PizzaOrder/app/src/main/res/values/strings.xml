@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">PizzaOrder</string>
+    <string name="application_header">Pizza Ordering App</string>
 
+    <string name="pizza_size_checker">Size:</string>
     <string name="pizza_size_small">Small</string>
     <string name="pizza_size_medium">Medium</string>
     <string name="pizza_size_large">Large</string>

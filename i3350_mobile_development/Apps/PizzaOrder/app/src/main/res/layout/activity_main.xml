@@ -15,23 +15,28 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/application_header"
+            android:gravity="center"
+            android:textSize="40sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="start|center">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@string/pizza_size_checker" />
 
             <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
                 <RadioButton
                     android:id="@+id/radioButton"
@@ -54,67 +59,43 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|center">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
-
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pizza_addon_item_3" />
-
-                <CheckBox
-                    android:id="@+id/checkBox4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pizza_addon_item_4" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
-
-                <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pizza_addon_item_1" />
-
-                <CheckBox
-                    android:id="@+id/checkBox2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pizza_addon_item_2" />
-            </LinearLayout>
-
-        </LinearLayout>
-
+            android:layout_gravity="center"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:padding="30sp">
+            <CheckBox android:text="@string/pizza_addon_item_1" />
+            <CheckBox android:text="@string/pizza_addon_item_2" />
+            <CheckBox android:text="@string/pizza_addon_item_3" />
+            <CheckBox android:text="@string/pizza_addon_item_4" />
+        </GridLayout>
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="70dp"
+            android:layout_weight="3"/>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Button"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="150dp"
+            android:layout_weight="3"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
