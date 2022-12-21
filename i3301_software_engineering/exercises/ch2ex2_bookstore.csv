@@ -1,0 +1,18 @@
+field, data
+id, 1
+description, paying for the book using ak credit card
+actor, user
+secondary actor, bank
+preconditions, has at least 1 book in the cart, valid card
+postconditions, reciever conformation email, the user bought the book
+trigger, pressing the "check out" button
+steps, 1, the user enter the card info
+, 2, the system receives the credits card info from user and validates its locally
+, 3, the system sends the c.c. info to the bank
+, 4, the bank checks if the c.c. is valid 
+, 5, The system receives the validation "OK" from the bank
+, 6, The system sends conformation email to the user
+, 2a, the system doesn't validate the card
+, 2b, sends a message to the user with the description of the error
+, 4a, the bank doesn't validate the card
+, 4b, the system recieves the info and displays it to the user
