@@ -39,22 +39,25 @@
                 >
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/smallRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pizza_size_small" />
+                    android:text="@string/pizza_size_small"
+                    android:onClick="setPizzaSize"/>
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/mediumRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pizza_size_medium" />
+                    android:text="@string/pizza_size_medium"
+                    android:onClick="setPizzaSize"/>
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/largeRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pizza_size_large" />
+                    android:text="@string/pizza_size_large"
+                    android:onClick="setPizzaSize"/>
             </RadioGroup>
 
         </LinearLayout>
@@ -66,36 +69,53 @@
             android:rowCount="2"
             android:columnCount="2"
             android:padding="30sp">
-            <CheckBox android:text="@string/pizza_addon_item_1" />
-            <CheckBox android:text="@string/pizza_addon_item_2" />
-            <CheckBox android:text="@string/pizza_addon_item_3" />
-            <CheckBox android:text="@string/pizza_addon_item_4" />
+            <CheckBox
+                android:id="@+id/addon_item_1"
+                android:text="@string/pizza_addon_item_1" />
+            <CheckBox
+                android:id="@+id/addon_item_2"
+                android:text="@string/pizza_addon_item_2" />
+            <CheckBox
+                android:id="@+id/addon_item_3"
+                android:text="@string/pizza_addon_item_3" />
+            <CheckBox
+                android:id="@+id/addon_item_4"
+                android:text="@string/pizza_addon_item_4" />
         </GridLayout>
         <Button
-            android:id="@+id/button"
+            android:id="@+id/ComputePriceButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Compute Price"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="30dp"
             android:layout_weight="3"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/viewOrderPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Choose Your Order!"
             android:gravity="center"
             android:textSize="20sp"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/AddtoCartButton"
+            android:onClick="addtoCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Add to Cart"
+            android:layout_marginTop="30dp"
+            android:layout_weight="3"/>
+        <Button
+            android:id="@+id/Checkout"
+            android:onClick="checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
             android:layout_marginTop="70dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="100dp"
             android:layout_weight="3"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
