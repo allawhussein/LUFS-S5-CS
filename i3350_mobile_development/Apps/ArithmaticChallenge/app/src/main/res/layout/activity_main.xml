@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="OP"
+            android:text="+"
             android:textSize="50sp"
             tools:ignore="HardcodedText" />
 
@@ -61,6 +61,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="+"
+            android:checked="true"
             android:textSize="50sp" />
 
         <RadioButton
@@ -88,6 +89,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="÷"
+            android:onClick="refreshNumbers"
             android:textSize="50sp" />
     </RadioGroup>
 
@@ -96,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:inputType="userInput"
+        android:inputType="number"
         android:text="Answer:"
         tools:ignore="Autofill,HardcodedText,LabelFor" />
 
