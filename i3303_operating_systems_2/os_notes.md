@@ -289,3 +289,68 @@ void main(){
 5 + numbers [1, 4] in an unknown order
 */
 ```
+
+# Chapter 3: Signals (IPC)
+
+## Definition:
+A signal is a "software interruption" defined to a process.
+
+A software interruption is any interruption not initiated by a hardware including but not limited to OS itself, and drivers. A device initiate hardware interrupt, that will envoke a software interruption by the driver.
+
+Upon signal delivery, an interrupt routine is started depending on the handler corresponding to the deliverd interrupt, these handlers are store in a "interruption vector".
+
+Sources of signals are:
+1. internal event  
+like segmentation fault, division by zero, floating point error, ...
+2. external event  
+^C, ^Z (suspend event SIGSTP, 19), ^\, I/O status reporting, ...
+3. explicit request  
+a "KILL" signal
+4. another process
+
+Each signal has an ID or a macro (it is as simple as `#define <macro_name> <signal_id>`)
+
+## Signal Reception
+
+A process upon signal reception has to do one of the following:
+1. ignore the signal if the signal can be ignored  
+only few signals can safetly ignored (like child exit)
+2. let the default action take place  
+most of the default action is abort the program, `SIGSTP` `SIGKILL` can't be handled nor ignored
+3. handle the signal if it can be handled
+
+## Signal Handling
+
+The `signal` function provides a simple interface for establishing an action for a particular signal.
+
+```c
+signal(<SIGID>, <handler>);
+```
+
+the handler argument takes a function name, having the function empty will override the default action of aborting the process.
+
+The default action has a macro known as `SIG_DFL`, it is useful if we want to reset a signal's handler.  
+Also there's `SIG_IGN` which will simply ignore the signal.
+
+The `signal` function is of type `sighandler_t`, and it returns the previous value of the signal handler that has been replaced.
+
+
+## Exmaple
+```C
+#include <signal.h>
+
+int counter = 0;
+void myhandler(int sig) {
+    counter++;
+}
+
+void main() {
+    int i;
+    signal(SIGCHILD, myhandler);
+    for (i = 0; i < 5; i++)
+        if (!fork) exit(0);
+    while (wait(NULL) != -1);
+    printf("exited children: %d", counter);
+}
+```
+
