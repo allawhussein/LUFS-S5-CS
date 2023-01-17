@@ -1,0 +1,8 @@
+package exercise_01_flyweight;
+
+public class Dictionary {
+	
+	private static final HasMap dictionary = new HashMap();
+	
+	public static 
+}

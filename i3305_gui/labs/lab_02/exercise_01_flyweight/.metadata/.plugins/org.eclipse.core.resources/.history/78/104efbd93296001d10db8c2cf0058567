@@ -1,0 +1,17 @@
+package exercise_01_flyweight;
+
+import java.util.HashMap;
+
+
+public class Dictionary {
+	
+	private static final HasMap dictionary = new HashMap();
+	
+	public static Character getCharacter(char letter) {
+		DisplayCharacter result = (DisplayCharacter)dictionary.get(letter);
+		
+		if (result == null) {
+			result = new DisplayCharacter(letter);
+		}
+	}
+}

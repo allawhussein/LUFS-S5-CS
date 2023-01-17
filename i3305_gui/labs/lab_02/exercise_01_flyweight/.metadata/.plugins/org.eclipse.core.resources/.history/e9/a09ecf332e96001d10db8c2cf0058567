@@ -1,0 +1,15 @@
+package exercise_01_flyweight;
+
+public class Letter {
+	private char letter;
+	public static final Letter createLetter(char letter) {
+		
+	}
+	
+	public void Letter() {
+		
+	}
+	public void Letter(char letter) {
+		
+	}
+}

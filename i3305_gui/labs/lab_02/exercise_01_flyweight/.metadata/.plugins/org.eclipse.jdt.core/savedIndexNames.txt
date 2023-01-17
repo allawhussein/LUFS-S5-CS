@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+D:\ulfs\2022-2023\Semester_V\i3305_gui\labs\lab_02\exercise_01_flyweight\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3939851534.index
+741050486.index

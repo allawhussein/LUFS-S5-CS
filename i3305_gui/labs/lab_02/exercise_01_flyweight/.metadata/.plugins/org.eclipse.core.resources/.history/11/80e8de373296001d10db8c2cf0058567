@@ -1,0 +1,6 @@
+package exercise_01_flyweight;
+
+public class DisplayCharacter {
+	private char letter;
+	private boolean upperCase;
+}

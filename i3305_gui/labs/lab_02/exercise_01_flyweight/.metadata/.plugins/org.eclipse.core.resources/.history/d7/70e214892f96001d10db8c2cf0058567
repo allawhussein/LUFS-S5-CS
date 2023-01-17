@@ -1,0 +1,15 @@
+package exercise_01_flyweight;
+
+import java.util.ArrayList;
+
+public class Letter {
+	private Character letter;
+	private ArrayList<Character> CharArray = new ArrayList<Character>();
+	public static final Letter createLetter(char letter) {
+		
+	}
+	
+	public Letter(char letter) {
+		this.letter = Character.toLowerCase(letter);
+	}
+}

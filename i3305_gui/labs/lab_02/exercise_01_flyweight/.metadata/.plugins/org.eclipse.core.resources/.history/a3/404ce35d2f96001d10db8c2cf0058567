@@ -1,0 +1,13 @@
+package exercise_01_flyweight;
+
+public class Letter {
+	private Character letter;
+	private List<Character>
+	public static final Letter createLetter(char letter) {
+		
+	}
+	
+	public Letter(char letter) {
+		this.letter = Character.toLowerCase(letter);
+	}
+}

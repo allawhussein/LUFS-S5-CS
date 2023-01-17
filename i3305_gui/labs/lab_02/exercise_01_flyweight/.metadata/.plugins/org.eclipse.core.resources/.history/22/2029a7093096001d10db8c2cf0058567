@@ -1,0 +1,18 @@
+package exercise_01_flyweight;
+
+import java.util.HashMap;
+
+public class Letter {
+	private Character letter;
+	private static final HashMap CharMap = new HashMap();
+	
+	public static final Letter getLetter(char letter) {
+		Letter result = (Letter)CharMap.get(letter);
+		
+		return result;
+	}
+	
+	public Letter(char letter) {
+		this.letter = Character.toLowerCase(letter);
+	}
+}

@@ -1,0 +1,5 @@
+package exercise_01_flyweight;
+
+public class DisplayCharacter {
+
+}

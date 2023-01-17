@@ -1,0 +1,23 @@
+package exercise_01_flyweight;
+
+public class DisplayCharacter {
+	private char letter;
+	private boolean upperCase;
+	
+	public DisplayCharacter(char letter) {
+		this.letter = Character.toLowerCase(letter);
+		upperCase = Character.isUpperCase(letter);
+	}
+	
+	public char getLetter() {
+		return this.letter;
+	}
+	
+	public boolean getUpperCase() {
+		return this.upperCase;
+	}
+	
+	public void setUpperCase(boolean upperCase) {
+		
+	}
+}

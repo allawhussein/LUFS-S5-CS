@@ -1,0 +1,23 @@
+package exercise_01_flyweight;
+
+import java.util.HashMap;
+
+public class Letter {
+	private static final HashMap CharMap = new HashMap();
+	private boolean upperCase;
+	public static final Letter getLetter(char letter) {
+		Letter result = (Letter)CharMap.get(letter);
+		
+		if (result == null) {
+			result = new Letter(letter);
+			CharMap.put(letter, result);
+			System.out.println("Creating character for: '" + letter + "'");
+		}
+		
+		return result;
+	}
+	
+	public Letter(char letter) {
+		this.letter = Character.toLowerCase(letter);
+	}
+}

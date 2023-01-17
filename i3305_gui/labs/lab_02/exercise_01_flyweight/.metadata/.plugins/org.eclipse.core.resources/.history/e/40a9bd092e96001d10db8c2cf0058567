@@ -1,0 +1,7 @@
+package exercise_01_flyweight;
+
+public class Letter {
+	public static final createLetter() {
+		
+	}
+}
