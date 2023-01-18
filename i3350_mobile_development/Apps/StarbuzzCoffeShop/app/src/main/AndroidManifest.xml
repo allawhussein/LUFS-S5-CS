@@ -8,6 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StarbuzzCoffeShop" />
+        android:theme="@style/Theme.StarbuzzCoffeShop">
+        <activity
+            android:name=".TopLevelActivity"
+            android:exported="false" />
+    </application>
 
 </manifest>
