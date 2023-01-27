@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int mCount = 0;
     private int mCurrentColor = 0;
-    private final String sharedPrefFile = "preferences";
+    private final String sharedPrefFile = "com.example.hellosharedpref.preferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,12 @@ public class MainActivity extends AppCompatActivity {
         TextView mShowCount = (TextView) findViewById(R.id.textView);
 
         SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        if (savedInstanceState != null) {
+        if (mPreferences != null) {
             mCount = mPreferences.getInt("count", 1);
             mShowCount.setText(String.format("%s", mCount));
             mCurrentColor = mPreferences.getInt("color", mCurrentColor);
             mShowCount.setBackgroundColor(mCurrentColor);
+            mShowCount.setTextColor(getResources().getColor(R.color.white));
         }
     }
 
@@ -59,12 +61,17 @@ public class MainActivity extends AppCompatActivity {
         else if (color_btn.getId() == R.id.grn_btn) mCurrentColor = 0xff00ff00;
 
         mShowCount.setBackgroundColor(mCurrentColor);
+        mShowCount.setTextColor(0xFFFFFFFF);
     }
 
     public void changeCounter(View counter_btn) {
         TextView mShowCount = (TextView) findViewById(R.id.textView);
 
-        if (counter_btn.getId() == R.id.rst_btn) mCount = 0;
+        if (counter_btn.getId() == R.id.rst_btn) {
+            mCount = 0;
+            mShowCount.setTextColor(0xFF000000);
+            mShowCount.setBackgroundColor(0);
+        }
         else if (counter_btn.getId() == R.id.inc_btn) mCount++;
 
         mShowCount.setText(String.valueOf(mCount));
