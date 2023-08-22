@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StarbuzzCoffeShop</string>
+    <string name="app_name">StarbuzzCoffeeShop</string>
     <string name="starbuzz_logo">Starbuzz Logo</string>
 
     <string-array name="options">

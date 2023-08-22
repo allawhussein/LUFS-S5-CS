@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TipsCalculator</string>
+    <string name="text_field_hint">Enter Bill Amount Now</string>
+</resources>
